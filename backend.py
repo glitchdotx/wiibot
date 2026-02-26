@@ -140,3 +140,20 @@ def game_list():
     "Eat Fat Fight" \
     "Super Smash Bros Brawl"
 
+def is_admin(ID):
+    """Checks if the user is a admin
+    
+    Arguments:
+        ID of user being checked
+    
+    Returns:
+        Boolean if that user is an admin or not
+    """
+    fin = open("admin.txt","r")
+    while True:
+        text = fin.readline().strip()
+        if(text == ""):
+            fin.close()
+            return False
+        if(int(text) == ID):
+            return True

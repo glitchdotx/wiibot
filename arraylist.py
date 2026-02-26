@@ -9,7 +9,6 @@ class Person:
         #only used to write to file
         return f"{self.id},{self.name},{self.marioKart},{self.eatFatFight},{self.brawl}"
 
-
 def get():
     """Get the registered player list
     

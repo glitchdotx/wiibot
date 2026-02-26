@@ -2,15 +2,17 @@ import arraylist
 import math
 
 class Rating:
-    def init(self,id,name,rating,certian,RD):
+    def init(self,id,name,rating,certian,RD,wins,loses):
          self.id = int(id)
          self.name = str(name)
          self.rating = int(rating)
          self.certian = bool(certian)
          self.RD = float(RD)
+         self.wins = int(wins)
+         self.loses = int(loses)
     def tostr (self):
         #only used to write to file
-        return f"{self.id},{self.name},{self.rating},{self.rating},{self.RD}"
+        return f"{self.id},{self.name},{self.rating},{self.rating},{self.RD},{self.wins},{self.loses}"
 
 def getlist(fin):
     array = []
@@ -81,7 +83,6 @@ def register(ID,name,game):
     fout.close()
     return 0
 
-
 def get_rating(ID,game):
     """
     Gets the reting and returns the value as a string along with a potental ? if uncertian
@@ -136,7 +137,6 @@ def changeRD(game):
     saveGame(list,fout)
     fout.close()
 
-
 def reset(game):
     """Resets the wins and losses for the given game
     
@@ -146,3 +146,4 @@ def reset(game):
     fin = open("games/"+getGame(game),"w")
     fin.close()
     return 0
+
