@@ -1,13 +1,14 @@
 class Person:
-    def init(self,id,name,marioKart,eatFatFight,brawl):
+    def init(self,id,name,marioKart,eatFatFight,brawl,swordFight):
          self.id = int(id)
          self.name = str(name)
          self.marioKart = bool(marioKart)
          self.eatFatFight = bool(eatFatFight)
          self.brawl = bool(brawl)
+         self.swordFight = bool(swordFight)
     def tostr (self):
         #only used to write to file
-        return f"{self.id},{self.name},{self.marioKart},{self.eatFatFight},{self.brawl}"
+        return f"{self.id},{self.name},{self.marioKart},{self.eatFatFight},{self.brawl},{self.swordFight}"
 
 def get():
     """Get the registered player list
@@ -22,7 +23,7 @@ def get():
         text = fin.readline().strip()
         if text == "":
             break
-        array.append(Person(text.split(",") [0],text.split(",") [1],text.split(",") [2],text.split(",") [3],text.split(",") [4]))
+        array.append(Person(text.split(",") [0],text.split(",") [1],text.split(",") [2],text.split(",") [3],text.split(",") [4],text.split(",") [5]))
     fin.close()
     return array
 

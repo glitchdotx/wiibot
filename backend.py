@@ -2,15 +2,16 @@ import arraylist
 import ranked
 
 class Person:
-    def init(self,id,name,marioKart,eatFatFight,brawl):
+    def init(self,id,name,marioKart,eatFatFight,brawl,swordFight):
          self.id = int(id)
          self.name = str(name)
          self.marioKart = bool(marioKart)
          self.eatFatFight = bool(eatFatFight)
          self.brawl = bool(brawl)
+         self.swordFight = bool(swordFight)
     def tostr (self):
         #only used to write to file
-        return f"{self.id},{self.name},{self.marioKart},{self.eatFatFight},{self.brawl}"
+        return f"{self.id},{self.name},{self.marioKart},{self.eatFatFight},{self.brawl},{self.swordFight}"
 
 def register(ID,name):
     """Registers a player for ranked games
@@ -61,16 +62,21 @@ def unrated(ID,name,game):
             if(list[place].brawl):
                 return 2
             list[place].brawl = True
+        elif(game==4):
+            if(list[place].swordFight):
+                return 2
+            list[place].swordFight = True
+        
 
         return ranked.register(ID,name,game)
     
     #register for all the games, checking to see if any work to return the correct value
     sucsess = 0
-    for i in range(1,4):
+    for i in range(1,5):
         out = ranked.register(ID,name,i)
-        if(i == 0):
+        if(out == 0):
             sucsess += 1
-        if(i == 1):
+        if(out == 1):
             return 1
     if(sucsess == 0):
         return 2
@@ -173,3 +179,4 @@ def add_admin(ID):
     fout.print(str(ID)+"\n")
     fout.close()
     return 0
+

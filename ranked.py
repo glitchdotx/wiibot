@@ -49,7 +49,9 @@ def getGame(game):
     elif(game==2):
         return "eatfatfight.csv"
     elif(game==3):
-        return "brawl"
+        return "brawl.csv"
+    elif(game==3):
+        return "swordFight.csv"
     else:
         return 2
 
